@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package zxtest.user;
+
+message UserInfo {
+	uint32 index = 2;	
+	string username = 1;
+}
+
+

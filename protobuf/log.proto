@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package zxtest.log;
+
+
+enum Recode {
+	SUCCESS = 0;
+	ERROR = 1;
+};
+
+message SendLog {
+	string sname = 1;
+	string Log = 2;	
+}

@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package zxtest.prototest;
+
+import "user.proto";
+import "log.proto";
+
+enum Recode {
+	SUCCESS = 0;
+	ERROR = 1;
+};
+
+message TestSend {
+	string sname 			= 1;
+	uint32 u32number 		= 2;
+	bool   isSerializeArray = 3;
+}
+
+message TestReceive {
+	Recode enumcode 	= 1;
+	string srename 		= 2;
+}
+
+
+message TestSendArray {
+	string 			sname 			= 1;
+	repeated uint32 u32number 		= 2;
+	repeated string usernames_array = 3;
+}
+
+message TestSendMsg {
+	string 			sMsg_name 	= 1;
+	TestSendArray 	Msg_array 	= 2;
+}
+
+message TestSendArrayMsg {
+	string 					sMsg_name 	= 1;
+	repeated TestSendArray 	Msg_array 	= 2;
+}
+
+message TestImport {
+	string 					sImport_name 	= 1;
+	zxtest.user.UserInfo 	userinfo 		= 2;
+	zxtest.log.SendLog		Log 			= 3;
+}
+
+
+message Testmessage {
+	string 					name 		= 1;
+	Recode 					enumcode 	= 2;
+	repeated uint32 		u32number 	= 3;
+	TestSendArray 			Msg_array 	= 4;
+	zxtest.user.UserInfo 	info 		= 5;
+}
+
+
