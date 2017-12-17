@@ -27,4 +27,3 @@ build_obj:
 clean:
 	@$(MAKE) -C ./src clean
 	rm -rf *.o
-	rm -rf */*.o	

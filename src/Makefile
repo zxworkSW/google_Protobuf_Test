@@ -17,6 +17,4 @@ all:$(OBJ)
 	
 .PHONY:clean
 clean:
-	@$(MAKE) -C ./lib clean
 	rm -rf *.o
-	rm -rf */*.o	
