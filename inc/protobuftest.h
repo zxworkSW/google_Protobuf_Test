@@ -53,7 +53,7 @@ private:
 	void protobufreceiveFromArray(google::protobuf::Message &buffmessage);
 	void protobufreceiveFromString(google::protobuf::Message &buffmessage);
 
-public:
+private:
 	char *p_arraysendbuffer;
 	int m_arraysendbuffersize;
 	std::string m_strsendbuffer;
