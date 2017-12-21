@@ -245,7 +245,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zxtest::prototest::TestSendMsg, smsg_name_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zxtest::prototest::TestSendMsg, msg_array_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zxtest::prototest::TestSendMsg, msg_info_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zxtest::prototest::TestSendArrayMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -320,23 +320,23 @@ void AddDescriptorsImpl() {
       "\003 \001(\010\"J\n\013TestReceive\022*\n\010enumcode\030\001 \001(\0162\030"
       ".zxtest.prototest.Recode\022\017\n\007srename\030\002 \001("
       "\t\"J\n\rTestSendArray\022\r\n\005sname\030\001 \001(\t\022\021\n\tu32"
-      "number\030\002 \003(\r\022\027\n\017usernames_array\030\003 \003(\t\"T\n"
-      "\013TestSendMsg\022\021\n\tsMsg_name\030\001 \001(\t\0222\n\tMsg_a"
-      "rray\030\002 \001(\0132\037.zxtest.prototest.TestSendAr"
-      "ray\"Y\n\020TestSendArrayMsg\022\021\n\tsMsg_name\030\001 \001"
-      "(\t\0222\n\tMsg_array\030\002 \003(\0132\037.zxtest.prototest"
-      ".TestSendArray\"m\n\nTestImport\022\024\n\014sImport_"
-      "name\030\001 \001(\t\022\'\n\010userinfo\030\002 \001(\0132\025.zxtest.us"
-      "er.UserInfo\022 \n\003Log\030\003 \001(\0132\023.zxtest.log.Se"
-      "ndLog\"\263\001\n\013Testmessage\022\014\n\004name\030\001 \001(\t\022*\n\010e"
-      "numcode\030\002 \001(\0162\030.zxtest.prototest.Recode\022"
-      "\021\n\tu32number\030\003 \003(\r\0222\n\tMsg_array\030\004 \001(\0132\037."
-      "zxtest.prototest.TestSendArray\022#\n\004info\030\005"
-      " \001(\0132\025.zxtest.user.UserInfo* \n\006Recode\022\013\n"
-      "\007SUCCESS\020\000\022\t\n\005ERROR\020\001b\006proto3"
+      "number\030\002 \003(\r\022\027\n\017usernames_array\030\003 \003(\t\"S\n"
+      "\013TestSendMsg\022\021\n\tsMsg_name\030\001 \001(\t\0221\n\010Msg_i"
+      "nfo\030\002 \001(\0132\037.zxtest.prototest.TestSendArr"
+      "ay\"Y\n\020TestSendArrayMsg\022\021\n\tsMsg_name\030\001 \001("
+      "\t\0222\n\tMsg_array\030\002 \003(\0132\037.zxtest.prototest."
+      "TestSendArray\"m\n\nTestImport\022\024\n\014sImport_n"
+      "ame\030\001 \001(\t\022\'\n\010userinfo\030\002 \001(\0132\025.zxtest.use"
+      "r.UserInfo\022 \n\003Log\030\003 \001(\0132\023.zxtest.log.Sen"
+      "dLog\"\263\001\n\013Testmessage\022\014\n\004name\030\001 \001(\t\022*\n\010en"
+      "umcode\030\002 \001(\0162\030.zxtest.prototest.Recode\022\021"
+      "\n\tu32number\030\003 \003(\r\0222\n\tMsg_array\030\004 \001(\0132\037.z"
+      "xtest.prototest.TestSendArray\022#\n\004info\030\005 "
+      "\001(\0132\025.zxtest.user.UserInfo* \n\006Recode\022\013\n\007"
+      "SUCCESS\020\000\022\t\n\005ERROR\020\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 789);
+      descriptor, 788);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "test.proto", &protobuf_RegisterTypes);
   ::protobuf_user_2eproto::AddDescriptors();
@@ -1355,12 +1355,12 @@ void TestSendArray::InternalSwap(TestSendArray* other) {
 // ===================================================================
 
 void TestSendMsg::InitAsDefaultInstance() {
-  ::zxtest::prototest::_TestSendMsg_default_instance_._instance.get_mutable()->msg_array_ = const_cast< ::zxtest::prototest::TestSendArray*>(
+  ::zxtest::prototest::_TestSendMsg_default_instance_._instance.get_mutable()->msg_info_ = const_cast< ::zxtest::prototest::TestSendArray*>(
       ::zxtest::prototest::TestSendArray::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int TestSendMsg::kSMsgNameFieldNumber;
-const int TestSendMsg::kMsgArrayFieldNumber;
+const int TestSendMsg::kMsgInfoFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 TestSendMsg::TestSendMsg()
@@ -1380,17 +1380,17 @@ TestSendMsg::TestSendMsg(const TestSendMsg& from)
   if (from.smsg_name().size() > 0) {
     smsg_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.smsg_name_);
   }
-  if (from.has_msg_array()) {
-    msg_array_ = new ::zxtest::prototest::TestSendArray(*from.msg_array_);
+  if (from.has_msg_info()) {
+    msg_info_ = new ::zxtest::prototest::TestSendArray(*from.msg_info_);
   } else {
-    msg_array_ = NULL;
+    msg_info_ = NULL;
   }
   // @@protoc_insertion_point(copy_constructor:zxtest.prototest.TestSendMsg)
 }
 
 void TestSendMsg::SharedCtor() {
   smsg_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  msg_array_ = NULL;
+  msg_info_ = NULL;
   _cached_size_ = 0;
 }
 
@@ -1401,7 +1401,7 @@ TestSendMsg::~TestSendMsg() {
 
 void TestSendMsg::SharedDtor() {
   smsg_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete msg_array_;
+  if (this != internal_default_instance()) delete msg_info_;
 }
 
 void TestSendMsg::SetCachedSize(int size) const {
@@ -1427,10 +1427,10 @@ void TestSendMsg::Clear() {
   (void) cached_has_bits;
 
   smsg_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == NULL && msg_array_ != NULL) {
-    delete msg_array_;
+  if (GetArenaNoVirtual() == NULL && msg_info_ != NULL) {
+    delete msg_info_;
   }
-  msg_array_ = NULL;
+  msg_info_ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -1460,12 +1460,12 @@ bool TestSendMsg::MergePartialFromCodedStream(
         break;
       }
 
-      // .zxtest.prototest.TestSendArray Msg_array = 2;
+      // .zxtest.prototest.TestSendArray Msg_info = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_msg_array()));
+               input, mutable_msg_info()));
         } else {
           goto handle_unusual;
         }
@@ -1508,10 +1508,10 @@ void TestSendMsg::SerializeWithCachedSizes(
       1, this->smsg_name(), output);
   }
 
-  // .zxtest.prototest.TestSendArray Msg_array = 2;
-  if (this->has_msg_array()) {
+  // .zxtest.prototest.TestSendArray Msg_info = 2;
+  if (this->has_msg_info()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *msg_array_, output);
+      2, *msg_info_, output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1539,11 +1539,11 @@ void TestSendMsg::SerializeWithCachedSizes(
         1, this->smsg_name(), target);
   }
 
-  // .zxtest.prototest.TestSendArray Msg_array = 2;
-  if (this->has_msg_array()) {
+  // .zxtest.prototest.TestSendArray Msg_info = 2;
+  if (this->has_msg_info()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        2, *msg_array_, deterministic, target);
+        2, *msg_info_, deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1570,11 +1570,11 @@ size_t TestSendMsg::ByteSizeLong() const {
         this->smsg_name());
   }
 
-  // .zxtest.prototest.TestSendArray Msg_array = 2;
-  if (this->has_msg_array()) {
+  // .zxtest.prototest.TestSendArray Msg_info = 2;
+  if (this->has_msg_info()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *msg_array_);
+        *msg_info_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1610,8 +1610,8 @@ void TestSendMsg::MergeFrom(const TestSendMsg& from) {
 
     smsg_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.smsg_name_);
   }
-  if (from.has_msg_array()) {
-    mutable_msg_array()->::zxtest::prototest::TestSendArray::MergeFrom(from.msg_array());
+  if (from.has_msg_info()) {
+    mutable_msg_info()->::zxtest::prototest::TestSendArray::MergeFrom(from.msg_info());
   }
 }
 
@@ -1640,7 +1640,7 @@ void TestSendMsg::Swap(TestSendMsg* other) {
 void TestSendMsg::InternalSwap(TestSendMsg* other) {
   using std::swap;
   smsg_name_.Swap(&other->smsg_name_);
-  swap(msg_array_, other->msg_array_);
+  swap(msg_info_, other->msg_info_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

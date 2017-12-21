@@ -622,21 +622,21 @@ class TestSendMsg : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::std::string* release_smsg_name();
   void set_allocated_smsg_name(::std::string* smsg_name);
 
-  // .zxtest.prototest.TestSendArray Msg_array = 2;
-  bool has_msg_array() const;
-  void clear_msg_array();
-  static const int kMsgArrayFieldNumber = 2;
-  const ::zxtest::prototest::TestSendArray& msg_array() const;
-  ::zxtest::prototest::TestSendArray* release_msg_array();
-  ::zxtest::prototest::TestSendArray* mutable_msg_array();
-  void set_allocated_msg_array(::zxtest::prototest::TestSendArray* msg_array);
+  // .zxtest.prototest.TestSendArray Msg_info = 2;
+  bool has_msg_info() const;
+  void clear_msg_info();
+  static const int kMsgInfoFieldNumber = 2;
+  const ::zxtest::prototest::TestSendArray& msg_info() const;
+  ::zxtest::prototest::TestSendArray* release_msg_info();
+  ::zxtest::prototest::TestSendArray* mutable_msg_info();
+  void set_allocated_msg_info(::zxtest::prototest::TestSendArray* msg_info);
 
   // @@protoc_insertion_point(class_scope:zxtest.prototest.TestSendMsg)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr smsg_name_;
-  ::zxtest::prototest::TestSendArray* msg_array_;
+  ::zxtest::prototest::TestSendArray* msg_info_;
   mutable int _cached_size_;
   friend struct ::protobuf_test_2eproto::TableStruct;
   friend void ::protobuf_test_2eproto::InitDefaultsTestSendMsgImpl();
@@ -1424,55 +1424,55 @@ inline void TestSendMsg::set_allocated_smsg_name(::std::string* smsg_name) {
   // @@protoc_insertion_point(field_set_allocated:zxtest.prototest.TestSendMsg.sMsg_name)
 }
 
-// .zxtest.prototest.TestSendArray Msg_array = 2;
-inline bool TestSendMsg::has_msg_array() const {
-  return this != internal_default_instance() && msg_array_ != NULL;
+// .zxtest.prototest.TestSendArray Msg_info = 2;
+inline bool TestSendMsg::has_msg_info() const {
+  return this != internal_default_instance() && msg_info_ != NULL;
 }
-inline void TestSendMsg::clear_msg_array() {
-  if (GetArenaNoVirtual() == NULL && msg_array_ != NULL) {
-    delete msg_array_;
+inline void TestSendMsg::clear_msg_info() {
+  if (GetArenaNoVirtual() == NULL && msg_info_ != NULL) {
+    delete msg_info_;
   }
-  msg_array_ = NULL;
+  msg_info_ = NULL;
 }
-inline const ::zxtest::prototest::TestSendArray& TestSendMsg::msg_array() const {
-  const ::zxtest::prototest::TestSendArray* p = msg_array_;
-  // @@protoc_insertion_point(field_get:zxtest.prototest.TestSendMsg.Msg_array)
+inline const ::zxtest::prototest::TestSendArray& TestSendMsg::msg_info() const {
+  const ::zxtest::prototest::TestSendArray* p = msg_info_;
+  // @@protoc_insertion_point(field_get:zxtest.prototest.TestSendMsg.Msg_info)
   return p != NULL ? *p : *reinterpret_cast<const ::zxtest::prototest::TestSendArray*>(
       &::zxtest::prototest::_TestSendArray_default_instance_);
 }
-inline ::zxtest::prototest::TestSendArray* TestSendMsg::release_msg_array() {
-  // @@protoc_insertion_point(field_release:zxtest.prototest.TestSendMsg.Msg_array)
+inline ::zxtest::prototest::TestSendArray* TestSendMsg::release_msg_info() {
+  // @@protoc_insertion_point(field_release:zxtest.prototest.TestSendMsg.Msg_info)
   
-  ::zxtest::prototest::TestSendArray* temp = msg_array_;
-  msg_array_ = NULL;
+  ::zxtest::prototest::TestSendArray* temp = msg_info_;
+  msg_info_ = NULL;
   return temp;
 }
-inline ::zxtest::prototest::TestSendArray* TestSendMsg::mutable_msg_array() {
+inline ::zxtest::prototest::TestSendArray* TestSendMsg::mutable_msg_info() {
   
-  if (msg_array_ == NULL) {
-    msg_array_ = ::google::protobuf::Arena::Create< ::zxtest::prototest::TestSendArray >(
+  if (msg_info_ == NULL) {
+    msg_info_ = ::google::protobuf::Arena::Create< ::zxtest::prototest::TestSendArray >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:zxtest.prototest.TestSendMsg.Msg_array)
-  return msg_array_;
+  // @@protoc_insertion_point(field_mutable:zxtest.prototest.TestSendMsg.Msg_info)
+  return msg_info_;
 }
-inline void TestSendMsg::set_allocated_msg_array(::zxtest::prototest::TestSendArray* msg_array) {
+inline void TestSendMsg::set_allocated_msg_info(::zxtest::prototest::TestSendArray* msg_info) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete msg_array_;
+    delete msg_info_;
   }
-  if (msg_array) {
+  if (msg_info) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      msg_array = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, msg_array, submessage_arena);
+      msg_info = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, msg_info, submessage_arena);
     }
     
   } else {
     
   }
-  msg_array_ = msg_array;
-  // @@protoc_insertion_point(field_set_allocated:zxtest.prototest.TestSendMsg.Msg_array)
+  msg_info_ = msg_info;
+  // @@protoc_insertion_point(field_set_allocated:zxtest.prototest.TestSendMsg.Msg_info)
 }
 
 // -------------------------------------------------------------------

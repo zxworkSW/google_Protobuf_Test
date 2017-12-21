@@ -10,5 +10,6 @@ enum Recode {
 
 message SendLog {
 	string sname = 1;
-	string Log = 2;	
+	string Log = 2;
+	Recode scode = 3;
 }

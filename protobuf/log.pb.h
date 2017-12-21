@@ -201,12 +201,19 @@ class SendLog : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::std::string* release_log();
   void set_allocated_log(::std::string* log);
 
+  // .zxtest.log.Recode scode = 3;
+  void clear_scode();
+  static const int kScodeFieldNumber = 3;
+  ::zxtest::log::Recode scode() const;
+  void set_scode(::zxtest::log::Recode value);
+
   // @@protoc_insertion_point(class_scope:zxtest.log.SendLog)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr sname_;
   ::google::protobuf::internal::ArenaStringPtr log_;
+  int scode_;
   mutable int _cached_size_;
   friend struct ::protobuf_log_2eproto::TableStruct;
   friend void ::protobuf_log_2eproto::InitDefaultsSendLogImpl();
@@ -326,6 +333,20 @@ inline void SendLog::set_allocated_log(::std::string* log) {
   }
   log_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), log);
   // @@protoc_insertion_point(field_set_allocated:zxtest.log.SendLog.Log)
+}
+
+// .zxtest.log.Recode scode = 3;
+inline void SendLog::clear_scode() {
+  scode_ = 0;
+}
+inline ::zxtest::log::Recode SendLog::scode() const {
+  // @@protoc_insertion_point(field_get:zxtest.log.SendLog.scode)
+  return static_cast< ::zxtest::log::Recode >(scode_);
+}
+inline void SendLog::set_scode(::zxtest::log::Recode value) {
+  
+  scode_ = value;
+  // @@protoc_insertion_point(field_set:zxtest.log.SendLog.scode)
 }
 
 #ifdef __GNUC__

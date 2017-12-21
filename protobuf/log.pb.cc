@@ -61,6 +61,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zxtest::log::SendLog, sname_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zxtest::log::SendLog, log_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::zxtest::log::SendLog, scode_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::zxtest::log::SendLog)},
@@ -92,12 +93,13 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\tlog.proto\022\nzxtest.log\"%\n\007SendLog\022\r\n\005sn"
-      "ame\030\001 \001(\t\022\013\n\003Log\030\002 \001(\t* \n\006Recode\022\013\n\007SUCC"
-      "ESS\020\000\022\t\n\005ERROR\020\001b\006proto3"
+      "\n\tlog.proto\022\nzxtest.log\"H\n\007SendLog\022\r\n\005sn"
+      "ame\030\001 \001(\t\022\013\n\003Log\030\002 \001(\t\022!\n\005scode\030\003 \001(\0162\022."
+      "zxtest.log.Recode* \n\006Recode\022\013\n\007SUCCESS\020\000"
+      "\022\t\n\005ERROR\020\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 104);
+      descriptor, 139);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "log.proto", &protobuf_RegisterTypes);
 }
@@ -137,6 +139,7 @@ void SendLog::InitAsDefaultInstance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SendLog::kSnameFieldNumber;
 const int SendLog::kLogFieldNumber;
+const int SendLog::kScodeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SendLog::SendLog()
@@ -160,12 +163,14 @@ SendLog::SendLog(const SendLog& from)
   if (from.log().size() > 0) {
     log_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.log_);
   }
+  scode_ = from.scode_;
   // @@protoc_insertion_point(copy_constructor:zxtest.log.SendLog)
 }
 
 void SendLog::SharedCtor() {
   sname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   log_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  scode_ = 0;
   _cached_size_ = 0;
 }
 
@@ -203,6 +208,7 @@ void SendLog::Clear() {
 
   sname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   log_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  scode_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -242,6 +248,21 @@ bool SendLog::MergePartialFromCodedStream(
             this->log().data(), static_cast<int>(this->log().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "zxtest.log.SendLog.Log"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .zxtest.log.Recode scode = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_scode(static_cast< ::zxtest::log::Recode >(value));
         } else {
           goto handle_unusual;
         }
@@ -294,6 +315,12 @@ void SendLog::SerializeWithCachedSizes(
       2, this->log(), output);
   }
 
+  // .zxtest.log.Recode scode = 3;
+  if (this->scode() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->scode(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -330,6 +357,12 @@ void SendLog::SerializeWithCachedSizes(
         2, this->log(), target);
   }
 
+  // .zxtest.log.Recode scode = 3;
+  if (this->scode() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->scode(), target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -359,6 +392,12 @@ size_t SendLog::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->log());
+  }
+
+  // .zxtest.log.Recode scode = 3;
+  if (this->scode() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->scode());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -398,6 +437,9 @@ void SendLog::MergeFrom(const SendLog& from) {
 
     log_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.log_);
   }
+  if (from.scode() != 0) {
+    set_scode(from.scode());
+  }
 }
 
 void SendLog::CopyFrom(const ::google::protobuf::Message& from) {
@@ -426,6 +468,7 @@ void SendLog::InternalSwap(SendLog* other) {
   using std::swap;
   sname_.Swap(&other->sname_);
   log_.Swap(&other->log_);
+  swap(scode_, other->scode_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

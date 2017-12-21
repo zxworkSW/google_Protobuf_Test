@@ -10,7 +10,8 @@ CFLAGS = -g -Wall
 VCPP = -std=c++11
 
 
-all:$(OBJ)	
+all:$(OBJ)
+	
 	
 %.o:%.cpp
 	$(CC) $(CFLAGS) $(INC) -c $< $(VCPP)
@@ -18,3 +19,4 @@ all:$(OBJ)
 .PHONY:clean
 clean:
 	rm -rf *.o
+	rm -rf */*.o	

@@ -30,7 +30,7 @@ message TestSendArray {
 
 message TestSendMsg {
 	string 			sMsg_name 	= 1;
-	TestSendArray 	Msg_array 	= 2;
+	TestSendArray 	Msg_info 	= 2;
 }
 
 message TestSendArrayMsg {
