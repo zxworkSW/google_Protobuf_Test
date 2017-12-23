@@ -2,7 +2,6 @@
 #include "test.pb.h"
 
 using namespace std;
-using namespace zxtest;
 
 
 namespace zxtest
