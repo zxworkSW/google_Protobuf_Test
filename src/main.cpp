@@ -30,16 +30,16 @@ void protobuf_test(void)
 
 static void protobuf_send()
 {
-	zxtest::CProtobuf TeseProtobuf(ISARRAY);
+	zxtest::CProtobuf TestProtobuf(ISARRAY);
 
-	TeseProtobuf.protosend(SANDNAME, ISARRAY);
-	TeseProtobuf.protoreceive();
-	TeseProtobuf.getaskreceive();
+	TestProtobuf.protosend(SANDNAME, ISARRAY);
+	TestProtobuf.protoreceive();
+	TestProtobuf.getaskreceive();
 }
 
 static void protobuf_sendarray()
 {
-	zxtest::CProtobufArray TeseProtobuf(ISARRAY);
+	zxtest::CProtobufArray TestProtobuf(ISARRAY);
 
 	std::vector<CUserinfo> Users;
 
@@ -52,14 +52,14 @@ static void protobuf_sendarray()
 		Users.push_back(addusers);
 	}
 
-	TeseProtobuf.protosend(SANDNAME, Users);
-	TeseProtobuf.protoreceive();
-	TeseProtobuf.getaskreceive();
+	TestProtobuf.protosend(SANDNAME, Users);
+	TestProtobuf.protoreceive();
+	TestProtobuf.getaskreceive();
 }
 
 static void protobuf_sendMsg()
 {
-	zxtest::CProtobufMsg TeseProtobuf(ISARRAY);
+	zxtest::CProtobufMsg TestProtobuf(ISARRAY);
 
 	std::vector<CUserinfo> Users;
 
@@ -72,14 +72,14 @@ static void protobuf_sendMsg()
 		Users.push_back(addusers);
 	}
 
-	TeseProtobuf.protosend(MSGNAME, SANDNAME, Users);
-	TeseProtobuf.protoreceive();
-	TeseProtobuf.getaskreceive();
+	TestProtobuf.protosend(MSGNAME, SANDNAME, Users);
+	TestProtobuf.protoreceive();
+	TestProtobuf.getaskreceive();
 }
 
 static void protobuf_sendArrayMsg()
 {
-	zxtest::CProtobufArrayMsg TeseProtobuf(ISARRAY);
+	zxtest::CProtobufArrayMsg TestProtobuf(ISARRAY);
 
 	std::vector<std::vector<CUserinfo>> Usersgroup;
 	for (int i = 0; i < 5; i++)
@@ -97,24 +97,24 @@ static void protobuf_sendArrayMsg()
 	}
 
 
-	TeseProtobuf.protosend(MSGNAME, SANDNAME, Usersgroup);
-	TeseProtobuf.protoreceive();
-	TeseProtobuf.getaskreceive();
+	TestProtobuf.protosend(MSGNAME, SANDNAME, Usersgroup);
+	TestProtobuf.protoreceive();
+	TestProtobuf.getaskreceive();
 }
 
 
 static void protobuf_sendImport()
 {
-	zxtest::CProtobufImport TeseProtobuf(ISARRAY);
+	zxtest::CProtobufImport TestProtobuf(ISARRAY);
 
 	CUserinfo User;
 	User.set_number(13);
 	User.set_username("TestUser");
 	std::string LogInfo("LogTest");
 
-	TeseProtobuf.protosend(SANDNAME, User, LogInfo);
-	TeseProtobuf.protoreceive();
-	TeseProtobuf.getaskreceive();
+	TestProtobuf.protosend(SANDNAME, User, LogInfo);
+	TestProtobuf.protoreceive();
+	TestProtobuf.getaskreceive();
 }
 
 int main(int argc, char **argv)
