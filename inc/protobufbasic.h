@@ -20,7 +20,7 @@ namespace protobufbasic
 			m_strsendbuffer(""),
 			m_isSerializeToArray(serialize)
 		{};
-		~CProtubufBasic()
+		virtual ~CProtubufBasic()
 		{
 			if (p_arraysendbuffer)
 			{
@@ -51,6 +51,7 @@ namespace protobufbasic
 				m_strsendbuffer.clear();
 			}
 		}
+
 
 	private:
 		void protobufSerializeToArray(google::protobuf::Message &buffmessage);

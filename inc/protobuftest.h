@@ -22,29 +22,76 @@ private:
 
 namespace zxtest
 {
-	using namespace protobufbasic;
-	class CProtobuf : public CProtubufBasic
+	class CProtobuf : public protobufbasic::CProtubufBasic
 	{
 	public:
 		CProtobuf() {};
-		CProtobuf(bool serialize) :CProtubufBasic(serialize) {};
-		~CProtobuf() {};
+		CProtobuf(bool serialize) :protobufbasic::CProtubufBasic(serialize) {};
+		virtual ~CProtobuf() {};
 
 		bool protosend(const std::string &name, int number);
-		bool protosendArray(const std::string &name, std::vector<CUserinfo> &Users);
-		bool protosendMsg(const std::string &sendMsgname, const std::string &sendArrayname, std::vector<CUserinfo> &Users);
-		bool protosendArrayMsg(const std::string &sendMsgname, const std::string &sendArrayname, std::vector<std::vector<CUserinfo>> &MsgUsers);
-		bool protosendImport(const std::string &name, CUserinfo &user_info, const std::string &log_info);
-
-		bool proreceive();
-		bool proreceiveArray();
-		bool proreceiveMsg();
-		bool proreceiveArrayMsg();
-		bool proreceiveImport();
+		virtual bool protoreceive();
 
 		void getaskreceive();
 	};
 }
+
+namespace zxtest
+{
+	class CProtobufArray : public CProtobuf
+	{
+	public:
+		CProtobufArray() {};
+		CProtobufArray(bool serialize) :CProtobuf(serialize) {};
+		~CProtobufArray() {};
+
+		bool protosend(const std::string &name, std::vector<CUserinfo> &Users);
+		bool protoreceive();
+	};
+}
+
+namespace zxtest
+{
+	class CProtobufMsg : public CProtobuf
+	{
+	public:
+		CProtobufMsg() {};
+		CProtobufMsg(bool serialize) :CProtobuf(serialize) {};
+		~CProtobufMsg() {};
+
+		bool protosend(const std::string &sendMsgname, const std::string &sendArrayname, std::vector<CUserinfo> &Users);
+		bool protoreceive();
+	};
+}
+
+namespace zxtest
+{
+	class CProtobufArrayMsg : public CProtobuf
+	{
+	public:
+		CProtobufArrayMsg() {};
+		CProtobufArrayMsg(bool serialize) :CProtobuf(serialize) {};
+		~CProtobufArrayMsg() {};
+
+		bool protosend(const std::string &sendMsgname, const std::string &sendArrayname, std::vector<std::vector<CUserinfo>> &MsgUsers);
+		bool protoreceive();
+	};
+}
+
+namespace zxtest
+{
+	class CProtobufImport : public CProtobuf
+	{
+	public:
+		CProtobufImport() {};
+		CProtobufImport(bool serialize) :CProtobuf(serialize) {};
+		~CProtobufImport() {};
+
+		bool protosend(const std::string &name, CUserinfo &user_info, const std::string &log_info);
+		bool protoreceive();
+	};
+}
+
 #endif
 
 
