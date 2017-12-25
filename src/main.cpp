@@ -21,25 +21,34 @@ static void protobuf_sendImport();
 
 void protobuf_test(void)
 {
+
 	//protobuf_send();
 	//protobuf_sendarray();
 	//protobuf_sendMsg();
 	protobuf_sendArrayMsg();
 	//protobuf_sendImport();
+
+}
+
+static void sendproto(zxtest::CProtobuf *p_Cprotobuf)
+{
+	p_Cprotobuf->protoreceive();
+	p_Cprotobuf->getaskreceive();
 }
 
 static void protobuf_send()
 {
-	zxtest::CProtobuf TestProtobuf(ISARRAY);
+	zxtest::CProtobuf *p_TeseProtobuf = new zxtest::CProtobuf(ISARRAY);
 
-	TestProtobuf.protosend(SANDNAME, ISARRAY);
-	TestProtobuf.protoreceive();
-	TestProtobuf.getaskreceive();
+	p_TeseProtobuf->protosend(SANDNAME, ISARRAY);
+	sendproto(p_TeseProtobuf);
+
+	delete p_TeseProtobuf;
 }
 
 static void protobuf_sendarray()
 {
-	zxtest::CProtobufArray TestProtobuf(ISARRAY);
+	zxtest::CProtobufArray *p_TeseProtobuf = new zxtest::CProtobufArray(ISARRAY);
 
 	std::vector<CUserinfo> Users;
 
@@ -52,15 +61,17 @@ static void protobuf_sendarray()
 		Users.push_back(addusers);
 	}
 
-	TestProtobuf.protosend(SANDNAME, Users);
-	TestProtobuf.protoreceive();
-	TestProtobuf.getaskreceive();
+	p_TeseProtobuf->protosend(SANDNAME, Users);
+	sendproto(p_TeseProtobuf);
+
+	delete p_TeseProtobuf;
 }
+
+
 
 static void protobuf_sendMsg()
 {
-	zxtest::CProtobufMsg TestProtobuf(ISARRAY);
-
+	zxtest::CProtobufMsg *p_TeseProtobuf = new zxtest::CProtobufMsg(ISARRAY);
 	std::vector<CUserinfo> Users;
 
 	for (int i = 7; i < 12; i++)
@@ -72,14 +83,15 @@ static void protobuf_sendMsg()
 		Users.push_back(addusers);
 	}
 
-	TestProtobuf.protosend(MSGNAME, SANDNAME, Users);
-	TestProtobuf.protoreceive();
-	TestProtobuf.getaskreceive();
+	p_TeseProtobuf->protosend(MSGNAME, SANDNAME, Users);
+	sendproto(p_TeseProtobuf);
+
+	delete p_TeseProtobuf;
 }
 
 static void protobuf_sendArrayMsg()
 {
-	zxtest::CProtobufArrayMsg TestProtobuf(ISARRAY);
+	zxtest::CProtobufArrayMsg *p_TeseProtobuf = new zxtest::CProtobufArrayMsg(ISARRAY);
 
 	std::vector<std::vector<CUserinfo>> Usersgroup;
 	for (int i = 0; i < 5; i++)
@@ -97,24 +109,26 @@ static void protobuf_sendArrayMsg()
 	}
 
 
-	TestProtobuf.protosend(MSGNAME, SANDNAME, Usersgroup);
-	TestProtobuf.protoreceive();
-	TestProtobuf.getaskreceive();
+	p_TeseProtobuf->protosend(MSGNAME, SANDNAME, Usersgroup);
+	sendproto(p_TeseProtobuf);
+
+	delete p_TeseProtobuf;
 }
 
 
 static void protobuf_sendImport()
 {
-	zxtest::CProtobufImport TestProtobuf(ISARRAY);
+	zxtest::CProtobufImport *p_TeseProtobuf = new zxtest::CProtobufImport(ISARRAY);
 
 	CUserinfo User;
 	User.set_number(13);
 	User.set_username("TestUser");
 	std::string LogInfo("LogTest");
 
-	TestProtobuf.protosend(SANDNAME, User, LogInfo);
-	TestProtobuf.protoreceive();
-	TestProtobuf.getaskreceive();
+	p_TeseProtobuf->protosend(SANDNAME, User, LogInfo);
+	sendproto(p_TeseProtobuf);
+
+	delete p_TeseProtobuf;
 }
 
 int main(int argc, char **argv)
