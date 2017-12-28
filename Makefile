@@ -3,8 +3,13 @@ INC = -I./inc \
 	  -I./MySQL/include \
 	  -I/usr/local/include
 
-SRC = $(wildcard */*.cpp *.cpp *.c */*.c *.cc */*.cc)
-OBJ = $(patsubst %.cpp,%.o, $(patsubst %.c,%.o,$(SRC)))
+.SUFFIXES: .proto .pb.cc
+
+PROTO_SRC = $(wildcard ./protobuf/*.proto)
+SRC = $(wildcard */*.cpp)
+
+PROTO_OBJ = $(patsubst %.proto,%.pb.cc, $(PROTO_SRC))
+OBJ = $(patsubst %.cpp,%.o, $(SRC))
 PRO = test.o
 
 CC = g++
@@ -14,17 +19,24 @@ LIB = -L/usr/local/lib -lprotobuf
 
 all:$(PRO)
 
-$(PRO):build_proto build_obj
-	$(CC) $(CFLAGS) $(INC) -o $@ $(OBJ) $(LIB) $(VCPP)
+$(PRO):$(PROTO_OBJ) $(OBJ)
+	$(CC) $(CFLAGS) $(INC) -o $@ $^ $(LIB) $(VCPP)
 
-build_proto:
+%.pb.cc:%.proto
 	@$(MAKE) -C ./protobuf
 
-build_obj:
+%.o:%.cpp
 	@$(MAKE) -C ./src
+	
+	
 	
 .PHONY:clean
 clean:
 	@$(MAKE) -C ./src clean
-	rm -rf *.o
-	rm -rf */*.o	
+	rm -rf $(PRO)
+	
+.PHONY:disclean
+disclean:
+	@$(MAKE) -C ./protobuf clean
+	@$(MAKE) -C ./src clean
+	rm -rf $(PRO)

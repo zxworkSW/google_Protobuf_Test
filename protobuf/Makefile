@@ -1,15 +1,21 @@
 DIR = $(shell pwd)
 
+.SUFFIXES: .proto .pb.cc
+
 CC = protoc
-OBJ = --cpp_out
+PROTO_TYPE = --cpp_out
 
 INC = --proto_path=$(DIR)
 SRC = $(wildcard $(DIR)/*.proto)
-OUT = $(OBJ)=$(DIR)
+OBJ = $(patsubst %.proto,%.pb.cc,$(SRC))
+
+OUT = $(PROTO_TYPE)=$(DIR)
 
 
-all:$(SRC)
-	$(CC) $(INC) $(OUT) $^
+all:$(OBJ)
+
+%.pb.cc:%.proto
+	$(CC) $(INC) $(OUT) $<
 
 .PHONY:clean
 clean:
