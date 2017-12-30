@@ -20,3 +20,6 @@ all:$(OBJ)
 .PHONY:clean
 clean:
 	rm -rf $(DIR)/*.pb.*
+
+.PHONY:disclean
+disclean:clean

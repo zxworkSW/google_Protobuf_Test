@@ -28,15 +28,11 @@ $(PRO):$(PROTO_OBJ) $(OBJ)
 %.o:%.cpp
 	@$(MAKE) -C ./src
 	
-	
-	
+.PHONY:disclean
+disclean:clean
+	@$(MAKE) -C ./protobuf disclean
+
 .PHONY:clean
 clean:
-	@$(MAKE) -C ./src clean
-	rm -rf $(PRO)
-	
-.PHONY:disclean
-disclean:
-	@$(MAKE) -C ./protobuf clean
 	@$(MAKE) -C ./src clean
 	rm -rf $(PRO)
